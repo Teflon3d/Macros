@@ -1,0 +1,16 @@
+########################################################################
+# Macro PID Extrusor
+########################################################################
+
+[gcode_macro PID_EXTRUSOR]
+description: "Realiza PID tuning del extrusor con el ventilador de capa encendido al 100%"
+gcode:
+    # Encender ventilador de capa al 100%
+    M106 S255
+    # Esperar para asegurarse de que el ventilador esté completamente encendido
+    G4 P2000
+    # Iniciar PID tuning para el extrusor
+    PID_CALIBRATE HEATER=extruder TARGET=220
+    # Apagar ventilador al finalizar el PID tuning
+    M107
+    SAVE_CONFIG
