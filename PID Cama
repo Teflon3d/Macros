@@ -1,0 +1,11 @@
+########################################################################
+# Macro PID Cama
+########################################################################
+
+[gcode_macro PID_CAMA]
+description: "Calibra y guarda automáticamente los valores PID de la cama caliente"
+gcode:
+    M117 Iniciando PID de la cama...
+    PID_CALIBRATE HEATER=heater_bed TARGET=60
+    M117 Finalizando calibración PID...
+    SAVE_CONFIG
