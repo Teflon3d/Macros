@@ -1,0 +1,28 @@
+######################################################################
+# Limpiar boquilla
+######################################################################
+
+
+[gcode_macro LIMPIEZA_BOQUILLA]
+description: Limpieza de boquilla en cepillo
+gcode:
+    SAVE_GCODE_STATE NAME=CLEAN_STATE
+
+    # Levantar un poco Z por seguridad
+    G91
+    G1 Z5 F300
+    G90
+
+    # Ir al cepillo
+    G1 X0 Y20 Z5 F6000
+
+    # Ciclo de limpieza (mover en X varias veces)
+    {% for i in range(6) %}
+        G1 Y20 F6000
+        G1 Y1 F6000
+    {% endfor %}
+
+    # Levantar boquilla al terminar
+    G1 Z10 F3000
+
+    RESTORE_GCODE_STATE NAME=CLEAN_STATE
