@@ -1,0 +1,28 @@
+######################################################################
+# Purgado incial
+######################################################################
+
+    
+[gcode_macro PURGAR]
+description: Línea de purgado inicial
+gcode:
+    SAVE_GCODE_STATE NAME=PURGE_STATE
+
+    # Coordenadas absolutas
+    G90
+    M83
+
+    # Ir al punto inicial
+    G1 X5 Y5 Z0.5 F3000
+
+    # Movimiento de purga hacia X190 (ajusta la cantidad de extrusión si deseas)
+    G1 X190 E15 F2000
+
+    # Volver a X5 moviento Y7 y purga (ajusta la cantidad de extrusión si deseas)
+    G1 X190 Y7 F2000               
+    G1 X5 E25 F1000
+
+    # Volver a X1 Y1 Subir a Z5 para evitar arrastre
+    G1 X1 Y1 Z5 F3000
+
+    RESTORE_GCODE_STATE NAME=PURGE_STATE
