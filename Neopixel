@@ -1,0 +1,149 @@
+########################################
+# TIRA LED CONFIGURABLE
+######################################## 
+
+[neopixel tira_led]
+pin: PE6                         # Pin Conexión placa
+chain_count: 25           # Número de LEDs 
+color_order: GRB
+initial_RED:   0.0          # Rojo
+initial_GREEN: 0.0      # Verde
+initial_BLUE:  0.0        # Azul
+
+########################## MACROS #################################
+
+########################################
+# ILUMINACIÓN 
+########################################
+
+[gcode_macro LED_ON]
+description: Encender LEDs Neopixel
+gcode:
+    SET_LED LED=tira_led RED=0.8 GREEN=0.8 BLUE=0.8
+
+[gcode_macro LED_OFF]
+description: Apagar LEDs Neopixel
+gcode:
+    SET_LED LED=tira_led RED=0 GREEN=0 BLUE=0 
+
+
+########################################
+# TIRA LED MITAD
+########################################
+
+[gcode_macro LED_MITAD]
+gcode:
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=1 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=2 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=3 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=4 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=5 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=6 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=7 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=8 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=9 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=10 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=11 TRANSMIT=0
+    SET_LED LED=tira_led RED=0 GREEN=1 BLUE=0 INDEX=12 TRANSMIT=0
+
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=13 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=14 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=15 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=16 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=17 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=18 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=19 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=20 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=21 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=22 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=23 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=24 TRANSMIT=0
+    SET_LED LED=tira_led RED=1 GREEN=0 BLUE=0 INDEX=25 TRANSMIT=1
+
+########################################
+# TIRA LED ARCOIRIS ESTATICA
+########################################
+
+[gcode_macro LED_ARCOIRIS_STATIC]
+gcode:
+    SET_LED LED=tira_led INDEX=1  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   # Rojo
+    SET_LED LED=tira_led INDEX=2  RED=1.00 GREEN=0.27 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=3  RED=1.00 GREEN=0.55 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=4  RED=1.00 GREEN=0.82 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=5  RED=0.83 GREEN=1.00 BLUE=0.00 TRANSMIT=0   # Amarillo-verdoso
+    SET_LED LED=tira_led INDEX=6  RED=0.55 GREEN=1.00 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=7  RED=0.27 GREEN=1.00 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=8  RED=0.00 GREEN=1.00 BLUE=0.00 TRANSMIT=0   # Verde
+    SET_LED LED=tira_led INDEX=9  RED=0.00 GREEN=1.00 BLUE=0.27 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=10 RED=0.00 GREEN=1.00 BLUE=0.55 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=11 RED=0.00 GREEN=1.00 BLUE=0.82 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=12 RED=0.00 GREEN=0.83 BLUE=1.00 TRANSMIT=0   # Cian
+    SET_LED LED=tira_led INDEX=13 RED=0.00 GREEN=0.55 BLUE=1.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=14 RED=0.00 GREEN=0.27 BLUE=1.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=15 RED=0.00 GREEN=0.00 BLUE=1.00 TRANSMIT=0   # Azul
+    SET_LED LED=tira_led INDEX=16 RED=0.27 GREEN=0.00 BLUE=1.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=17 RED=0.55 GREEN=0.00 BLUE=1.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=18 RED=0.82 GREEN=0.00 BLUE=1.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=19 RED=1.00 GREEN=0.00 BLUE=0.83 TRANSMIT=0   # Magenta
+    SET_LED LED=tira_led INDEX=20 RED=1.00 GREEN=0.00 BLUE=0.55 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=21 RED=1.00 GREEN=0.00 BLUE=0.27 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=22 RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   # Vuelta al rojo
+    SET_LED LED=tira_led INDEX=23 RED=1.00 GREEN=0.27 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=24 RED=1.00 GREEN=0.55 BLUE=0.00 TRANSMIT=0
+    SET_LED LED=tira_led INDEX=25 RED=1.00 GREEN=0.82 BLUE=0.00 TRANSMIT=1
+
+########################################
+# ESTADOS DE LA IMPRESORA
+########################################
+
+[gcode_macro LED_LEVELING]
+description: Nivelación
+gcode:
+    SET_LED LED=tira_led RED=0.1 GREEN=0.4 BLUE=1.0
+    
+
+[gcode_macro LED_HEATING]
+description: Calentanto cama y extrusor
+gcode:
+    SET_LED LED=tira_led RED=1.00 GREEN=0.33 BLUE=0.00
+
+
+[gcode_macro LED_STARTING]
+description: Iniciando impresión
+gcode:
+    SET_LED LED=tira_led RED=0.00 GREEN=1.00 BLUE=0.27
+
+    
+
+[gcode_macro LED_PRINTING]
+description: Imprimiendo
+gcode:
+    SET_LED LED=tira_led RED=1.0 GREEN=1.0 BLUE=1.0
+
+
+[gcode_macro LED_SUCCESS]
+description: Impresión finalizada
+gcode:
+    SET_LED LED=tira_led RED=1.00 GREEN=0.00 BLUE=0.55
+
+
+[gcode_macro LED_PAUSED]
+description: Pausa de la impresión
+gcode:
+    SET_LED LED=tira_led INDEX=1  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=2  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=3  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=4  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=10  RED=0.00 GREEN=0.83 BLUE=1.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=11  RED=0.00 GREEN=0.83 BLUE=1.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=12  RED=0.00 GREEN=0.83 BLUE=1.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=13  RED=0.00 GREEN=0.83 BLUE=1.00 TRANSMIT=00   
+    SET_LED LED=tira_led INDEX=22  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=23  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=24  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=0   
+    SET_LED LED=tira_led INDEX=25  RED=1.00 GREEN=0.00 BLUE=0.00 TRANSMIT=1   
+
+[gcode_macro LED_ERROR]
+description: Error de la impresora
+gcode:
+    SET_LED LED=tira_led RED=1.0 GREEN=0.0 BLUE=0.0
